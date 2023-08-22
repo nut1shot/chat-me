@@ -8,7 +8,6 @@ import { v4 as uuid } from "uuid";
 import React from "react";
 import { useUserContext } from "../context";
 import { useRouter } from "next/router";
-import Cookies from "js-cookie";
 
 export default function Home() {
   const { username, setUsername } = useUserContext();
@@ -17,7 +16,7 @@ export default function Home() {
 
   const login = () => {
     if (username.name === "") {
-      alert("Enter Username");
+      alert("Enter Name");
       return;
     }
     setDoc(doc(db, "users", `${unique_id}`), {
@@ -30,7 +29,6 @@ export default function Home() {
       "user",
       JSON.stringify({ id: unique_id, name: username })
     );
-    Cookies.set("user", true);
     const user = localStorage.getItem("user");
     setUsername(JSON.parse(user));
     router.push("/chat");
@@ -51,7 +49,7 @@ export default function Home() {
             <Col span={24}>
               <Input
                 size="large"
-                placeholder="username"
+                placeholder="Name"
                 prefix={<UserOutlined />}
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -66,7 +64,7 @@ export default function Home() {
                     py-[8px] px-[4rem] text-[#fff] hover:text-[#8fe18f]"
                   onClick={login}
                 >
-                  login
+                  Let's Chat
                 </button>
               </Space>
             </Col>

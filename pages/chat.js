@@ -15,7 +15,6 @@ import { useUserContext } from "../context";
 import { Col, Row, Button, Modal, Input, Space } from "antd";
 import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
-import Cookies from "js-cookie";
 
 const Chat = () => {
   const [rooms, setRooms] = useState([]);
@@ -58,12 +57,11 @@ const Chat = () => {
             <Button type="primary" onClick={() => setModalOpen(true)}>
               Create Room
             </Button>
-            Username: {username.name}
+            Your Name: {username.name}
             <Link href="/">
               <Button
                 onClick={() => {
                   localStorage.clear();
-                  Cookies.remove("user");
                 }}
                 danger
               >
