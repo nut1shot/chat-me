@@ -64,7 +64,7 @@ export default function Home() {
                     py-[8px] px-[4rem] text-[#fff] hover:text-[#8fe18f]"
                   onClick={login}
                 >
-                  Let's Chat
+                  Lets Chat
                 </button>
               </Space>
             </Col>
